@@ -199,7 +199,7 @@ At this moment, some metrics will be calculated: the radius of curvature and the
 The code is quite self-explicative, so I'll    leave to the reader its lecture. For further information, please refer to  [Lesson 15: Advanced Techniques for Lane Finding](https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/2b62a1c3-e151-4a0e-b6b6-e424fa46ceab/lessons/096009a1-3d76-4290-92f3-055961019d5e/concepts/016c6236-7f8c-4c07-8232-a3d099c5454a) of Udacity's [Self Driving Car Engineer Nanodegree](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013). 
 
 ```python
-def curvature_radius (leftx, rightx, img_shape, xm_per_pix=3.7/700, ym_per_pix = 30/720):
+def curvature_radius (leftx, rightx, img_shape, xm_per_pix=3.7/800, ym_per_pix = 25/720):
     ploty = np.linspace(0, img_shape[0] - 1, img_shape[0])
     
     leftx = leftx[::-1]  # Reverse to match top-to-bottom in y
@@ -212,8 +212,8 @@ def curvature_radius (leftx, rightx, img_shape, xm_per_pix=3.7/700, ym_per_pix =
     right_fitx = right_fit[0]*ploty**2 + right_fit[1]*ploty + right_fit[2]
 
     # Define conversions in x and y from pixels space to meters
-    ym_per_pix = 30/720 # meters per pixel in y dimension
-    xm_per_pix = 3.7/700 # meters per pixel in x dimension
+    ym_per_pix = 25/720 # meters per pixel in y dimension
+    xm_per_pix = 3.7/800 # meters per pixel in x dimension
 
     # Fit new polynomials to x,y in world space
     y_eval = np.max(ploty)
@@ -229,7 +229,7 @@ def curvature_radius (leftx, rightx, img_shape, xm_per_pix=3.7/700, ym_per_pix =
 ```
 
 ```python
-def car_offset(leftx, rightx, img_shape, xm_per_pix=3.7/700):
+def car_offset(leftx, rightx, img_shape, xm_per_pix=3.7/800):
     ## Image mid horizontal position 
     mid_imgx = img_shape[1]//2
         
